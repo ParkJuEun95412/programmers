@@ -1,0 +1,64 @@
+1. 선택 정렬(index): 각 인덱스에 들어갈 값들을 찾아서 정렬
+0번 인덱스에 넣어줄 가장 작은 값을 찾기위해 0~5번 인덱스의 값들을 하나씩 확인하고 넣어줌
+1회전시 0번 인덱스에 가장 작은값이 들어가고
+2회전시 1번 인덱스에 가장 작은값이 작은값이 들어간 해당 인덱스와 교환하여 들어간다
+만약, 1회전시 4번 인덱스에 가장 작은값이 있었다면 결과적으로 1번인덱스에는 4번 인덱스가 4번 인덱스에는 1번 인덱스가 들어감
+
+-> 주어진 배열에서 최댓값(최솟값)을 찾아 맨 오른쪽(왼쪽) 값과 교체
+1) 1:1 swap 교체
+def swap(some_list,i,j):
+  some_list[i],some_list[j] = some_list[j],some_list[i]
+  
+2) 리스트의 원소를 돌면서 크기 비교하는 함수 선언 후 swap 함수 적용
+def selection_sort1(some_list):
+  for i in range(len(some_list):
+    min_index=i
+    for j in range(min_index+1, len(some_list)):
+      if some_list[min_index]> some_list[j]:
+        swap(some_list,min_index,j)
+  return some_list
+  
+ 
+1-2. 버블정렬
+*버블정렬과 선택정렬의 차이
+
+
+# for i in reversed(range(횟수)) 숫자의 순서를 반대로 
+  for i in reversed(range(시작, 끝))
+  for i in reversed(range(시작, 끝, 증가폭))
+  = for i in range(시작, 끝, -1) 
+
+x에는 리스트가 들어올 것.
+def selection_sort2(x):
+  for i in range reversed(range(len(x)):
+    max_i = 0
+    for i in range(1, 1+i):
+      x[i]>x[max_i]
+     swap(x,max_i,i)
+  return x
+  
+2. 삽입 정렬(value): 각 값이 어떤 인덱스에 들어가야할 지 찾는 정렬
+1회전시 0-1 2회전시 0-1-2, 3회전시 0-1-2-3 뒤에 있는 값을 기준으로 앞으로 보면서 한칸씩 움직임. 비교하여 삽입함
+이미 정렬이 거의 완성된 리스트에 경우 삽입정렬이 가장 빠른 효과를 볼수 있지만, 그렇지 않고 정반대로 정렬이 된경우에는 오래 걸린다.
+
+- 선택정렬과 합병 정렬은 상황에 영향을 받지 않고 일정한 시간을 소요한다
+- 무작위 순서의 리스트 정렬시에는 힙정렬이 가장 빠르다
+
+# 뒤에서 앞으로 가면서 교체
+
+def insertion_sort(some_list):
+  for i in range(len(some_list)):
+    value=some_list[i] # 첫번째 인덱스의 값 저장
+    j = i # 마지막 index
+    while j>0 and some_list[j-1]>value: # 마지막-1 번째 인덱스가 마지막 인덱스보다 크다면 
+      some_list[j]=some_list[j-1] #자리교체
+      j -= 1 #뒤에서 앞으로 가면서 자리교체 
+    some_list[j] = value 
+  return some_list
+  
+  
+  *참고사이트
+  -https://nittaku.tistory.com/493
+  -http://ejklike.github.io/2017/03/04/sorting-algorithms-with-python.html
+  
+    
